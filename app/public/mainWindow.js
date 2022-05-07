@@ -27,7 +27,7 @@ let mainWindow = new BrowserWindow({
     if( app.isPackaged){
 
       mainWindow.loadFile( path.join(__dirname, "index.html"))
-      mainWindow.setMenu(null)
+   //   mainWindow.setMenu(null)
     }else{
       mainWindow.loadURL("http://localhost:3000");
     }

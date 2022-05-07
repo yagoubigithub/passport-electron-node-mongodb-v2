@@ -1,9 +1,51 @@
 {
-  "name": "app",
+  "name": "appname",
   "version": "0.1.0",
   "private": true,
   "main": "./public/electron.js",
   "author": "Yagoubi abdelkader <yagoubi.aek.2@gmail.com>",
+  "build": {
+    "npmRebuild": false,
+    "appId": "com.appname",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "public/**/*",
+      {
+        "from": "public/**/*",
+        "to": "build/**/*"
+      }
+    ],
+    "directories": {
+      "buildResources": "public"
+    },
+    "win": {
+      "icon": "public/logo.png",
+      "target": [
+        "nsis"
+      ]
+    },
+    "mac": {
+      "icon": "public/logo.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "deleteAppDataOnUninstall": true,
+      "uninstallDisplayName": "appname",
+      "license": "license.txt",
+      "language": 1033,
+      "displayLanguageSelector": false
+    },
+    "linux": {
+      "icon": "public/logo-linux.icns",
+      "target": [
+        "deb"
+      ]
+    },
+    "productName": "appname",
+    "copyright": "yagoubi abdelkader"
+  },
   "homepage": "./",
   "dependencies": {
     "@blueprintjs/core": "^4.3.0",
